@@ -6,6 +6,128 @@
     android:layout_height="match_parent"
     tools:context=".reports.ActivityCalender">
 
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/img_arrow_left"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:src="@drawable/ic_arrow_left">
+
+                </ImageView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:layout_weight="3"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txt_name_calendar"
+                        android:text="Leon King"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="15dp">
+
+                    </TextView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txt_location_calendar"
+
+                        android:text="Your current location"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="15dp">
+
+                    </TextView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="15dp"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:id="@+id/img_rigth"
+                            android:src="@drawable/ic_rigth"
+                            android:paddingLeft="50dp"
+                            android:layout_height="wrap_content">
+
+                        </ImageView>
+
+                        <ImageView
+                            android:id="@+id/img_direction"
+                            android:paddingLeft="15dp"
+                            android:layout_width="wrap_content"
+                            android:src="@drawable/ic_direction"
+                            android:layout_height="wrap_content">
+
+                        </ImageView>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/img_dots_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:src="@drawable/ic_dots">
+
+                </ImageView>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:textStyle="bold"
+            android:layout_margin="15dp"
+            android:text="Please register your visits, calls and other actions. We ask you to keep in touch with the person at least twice a week."
+            android:layout_height="wrap_content">
+
+
+        </TextView>
+
+        <com.github.sundeepk.compactcalendarview.CompactCalendarView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/compactcalendar_view"
+            android:layout_width="fill_parent"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:layout_height="200dp"
+            app:compactCalendarTargetHeight="250dp"
+            app:compactCalendarTextSize="12sp"
+            app:compactCalendarBackgroundColor="#F0F0F0"
+            app:compactCalendarTextColor="#030303"
+            app:compactCalendarCurrentDayBackgroundColor="#F0F0F0"
+            app:compactCalendarMultiEventIndicatorColor="#1745BD"
+            />
+    </LinearLayout>
+
     <ImageView
         android:id="@+id/fab_add"
         android:layout_width="65dp"
