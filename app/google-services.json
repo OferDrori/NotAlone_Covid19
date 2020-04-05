@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "106831371643",
+    "firebase_url": "https://notalonecovid19.firebaseio.com",
+    "project_id": "notalonecovid19",
+    "storage_bucket": "notalonecovid19.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106831371643:android:4381a2ed4ecbda95c371de",
+        "android_client_info": {
+          "package_name": "com.example.notalone_covid19"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "106831371643-vlvufh1fir18a4g06rda0gj677motpq2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.notalone_covid19",
+            "certificate_hash": "7f3493f21c16519c1888be92b6a699c7a644ac2b"
+          }
+        },
+        {
+          "client_id": "106831371643-69cdo0moomrgsg94hscpomm7po0itn2n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmMzIYg76DvpFTopCuG_1CpMr7PEwFucc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "106831371643-69cdo0moomrgsg94hscpomm7po0itn2n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
