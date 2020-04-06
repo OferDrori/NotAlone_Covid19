@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -14,8 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.example.notalone_covid19.Adapter_NoteModel;
+import com.example.notalone_covid19.MySharedPreferences;
 import com.example.notalone_covid19.R;
 import com.example.notalone_covid19.User;
+import com.google.android.gms.maps.GoogleMap;
 
 import java.util.ArrayList;
 
@@ -24,6 +27,7 @@ public class PeopleFragment extends Fragment
 
     private RecyclerView list_LST_notes_people;
     private Adapter_NoteModel adapter_noteModel;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
