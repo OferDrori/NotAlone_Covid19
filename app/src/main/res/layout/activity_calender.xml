@@ -4,11 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layoutDirection="ltr"
     tools:context=".reports.ActivityCalender">
 
 
 
     <LinearLayout
+        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="wrap_content">
@@ -65,6 +67,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="15dp"
+                        android:gravity="center"
                         android:orientation="horizontal">
 
 
@@ -72,14 +75,14 @@
                             android:layout_width="wrap_content"
                             android:id="@+id/img_rigth"
                             android:src="@drawable/ic_rigth"
-                            android:paddingLeft="50dp"
+                            android:paddingHorizontal="5dp"
                             android:layout_height="wrap_content">
 
                         </ImageView>
 
                         <ImageView
+                            android:paddingHorizontal="5dp"
                             android:id="@+id/img_direction"
-                            android:paddingLeft="15dp"
                             android:layout_width="wrap_content"
                             android:src="@drawable/ic_direction"
                             android:layout_height="wrap_content">
@@ -118,14 +121,34 @@
             android:layout_width="fill_parent"
             android:paddingRight="10dp"
             android:paddingLeft="10dp"
-            android:layout_height="200dp"
+            android:layout_height="220dp"
             app:compactCalendarTargetHeight="250dp"
             app:compactCalendarTextSize="12sp"
             app:compactCalendarBackgroundColor="#F0F0F0"
             app:compactCalendarTextColor="#030303"
             app:compactCalendarCurrentDayBackgroundColor="#F0F0F0"
-            app:compactCalendarMultiEventIndicatorColor="#1745BD"
-            />
+            app:compactCalendarMultiEventIndicatorColor="#1745BD" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp">
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Date"/>
+            <TextView
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Action"/>
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/events_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="15dp"/>
     </LinearLayout>
 
     <ImageView

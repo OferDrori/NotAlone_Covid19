@@ -54,7 +54,7 @@ public class HomeFragment extends Fragment
             @Override
             public void onItemClick(View view, int position, User note)
             {
-                goToCalendarActivity();
+                goToCalendarActivity(note);
                 openNote(note);
             }
         });
@@ -76,8 +76,10 @@ public class HomeFragment extends Fragment
         return notes;
     }
 
-    private void goToCalendarActivity(){
+    private void goToCalendarActivity(User user){
         Intent intent = new Intent(getActivity() , ActivityCalender.class);
+        intent.putExtra("uid",user.getId());
+        intent.putExtra("my_uid","12341234");
         startActivity(intent);
     }
 
