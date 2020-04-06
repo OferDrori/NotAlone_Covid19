@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    tools:context=".login.RegisterActivity">
+
+
+    <LinearLayout
+        android:id="@+id/layoutLinear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/img_arrow_left"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:src="@drawable/ic_arrow_left">
+
+                </ImageView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txt_name_calendar"
+                        android:text="Add Action"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:layout_weight="3"
+                        android:textColor="#000000"
+                        android:textSize="25sp">
+
+                    </TextView>
+
+                <ImageView
+                    android:id="@+id/img_dots_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:src="@drawable/ic_dots"
+                    android:visibility="invisible">
+
+                </ImageView>
+
+            </LinearLayout>
+
+        </FrameLayout>
+        <LinearLayout
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:text="Date:"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:gravity="top" />
+                <TextView
+                    android:layout_marginTop="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:text="Action:"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:gravity="top" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginStart="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/date_picker_button"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/activityAdd_textView_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:text="13 May"
+                        android:layout_gravity="center"
+                        android:textColor="#000000"
+                        android:textSize="20sp"/>
+
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:layout_width="20sp"
+                        android:layout_height="30sp"
+                        android:layout_marginStart="5dp"
+                        android:rotation="180"
+                        android:background="@drawable/ic_arrow_left"/>
+                </LinearLayout>
+                <Spinner
+                    android:id="@+id/activityAdd_actionSpinner"
+                    android:layout_marginTop="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+    </LinearLayout>
+
+        <Button
+            android:id="@+id/add_action_save"
+            android:textColor="#FFFFFF"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50dp"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:text="Save"
+            android:background="@drawable/ic_button"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

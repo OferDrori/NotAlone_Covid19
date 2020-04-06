@@ -10,7 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".login.WaitingActivity" />
-        <activity android:name=".reports.ActivityCalender" />
+        <activity android:name=".reports.ActivityCalender">
+
+        </activity>
         <activity android:name=".login.RegisterActivity" />
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".MainActivity">
