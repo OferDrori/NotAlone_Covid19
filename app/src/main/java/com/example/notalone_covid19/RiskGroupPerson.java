@@ -6,6 +6,8 @@ public class RiskGroupPerson {
     private String id;
     private String fullName;
     private String Address;
+    private double longitude;
+    private double latitude;
     private int helperID;
     private String phone;
     private String status;
@@ -13,13 +15,31 @@ public class RiskGroupPerson {
     public RiskGroupPerson() {
     }
 
-    public RiskGroupPerson(String id, String fullName, String address, int helperID, String phone, String status) {
+    public RiskGroupPerson(String id, String fullName, String address, double longitude, double latitude, int helperID, String phone, String status) {
         this.id = id;
         this.fullName = fullName;
         Address = address;
+        this.longitude = longitude;
+        this.latitude = latitude;
         this.helperID = helperID;
         this.phone = phone;
         this.status = status;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 
     public String getId() {

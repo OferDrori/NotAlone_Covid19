@@ -33,7 +33,7 @@
             android:textSize="16dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="last update time"
+            android:text="David Cohen"
             android:textColor="#757575" />
 
         <TextView
@@ -44,7 +44,7 @@
             android:ellipsize="end"
             android:paddingTop="3dp"
             android:maxLines="1"
-            android:text="last update time"
+            android:text="Tel Aviv Arlozorov 12"
             android:textColor="#757575" />
 
         <TextView
@@ -54,7 +54,7 @@
             android:layout_gravity="end"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="last update time"
+            android:text="0.9 km"
             android:textColor="#757575" />
 
         </LinearLayout>

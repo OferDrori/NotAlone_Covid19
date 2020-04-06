@@ -92,7 +92,7 @@ public class PeopleFragment extends Fragment
         User note3 = new User("Ran","xxx@yyy.com","123");
         notes.add(note3);
         User note4 = new User("Rani","xxx@yyy.com","123");
-        notes.add(note3);
+        notes.add(note4);
 
         return notes;
     }
