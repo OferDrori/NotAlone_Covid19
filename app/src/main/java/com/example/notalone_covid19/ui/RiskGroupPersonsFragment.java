@@ -16,10 +16,10 @@ public class RiskGroupPersonsFragment {
     ArrayList<RiskGroupPerson> riskGroupPersons = new ArrayList<>();
     private final String RISK_GROUP_PERSONS_DB_NAME = "RiskGroupPersonDB";
 
-    public void readFromDatabase()
+    private void readFromDatabase()
     {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("message");
+        DatabaseReference ref = database.getReference(RISK_GROUP_PERSONS_DB_NAME);
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

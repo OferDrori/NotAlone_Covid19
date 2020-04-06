@@ -35,6 +35,7 @@ public class AddActionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_add_action);
         if(getIntent().getExtras() == null)
             return;

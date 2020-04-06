@@ -61,6 +61,7 @@ public class ActivityCalender extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_calender);
         calendarView = findViewById(R.id.compactcalendar_view);
         fabAdd = findViewById(R.id.fab_add);

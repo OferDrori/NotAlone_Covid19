@@ -5,6 +5,7 @@ public class VolunteerUser extends User {
     private String description;
     private String phoneNumber;
     private String location;//check
+    private boolean permissionAccess=false;
 
     public VolunteerUser() {
       super();
@@ -16,6 +17,15 @@ public class VolunteerUser extends User {
         this.description = description;
         this.phoneNumber = phoneNumber;
         this.location = location;
+        this.permissionAccess=false;
+    }
+
+    public boolean isPermissionAccess() {
+        return permissionAccess;
+    }
+
+    public void setPermissionAccess(boolean permissionAccess) {
+        this.permissionAccess = permissionAccess;
     }
 
     public String getPhotoPath() {
