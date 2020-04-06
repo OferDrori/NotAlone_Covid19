@@ -15,7 +15,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.notalone_covid19.Adapter_NoteModel;
+import com.example.notalone_covid19.Adapter_RiskGroup;
 import com.example.notalone_covid19.R;
+import com.example.notalone_covid19.RiskGroupPerson;
 import com.example.notalone_covid19.User;
 import com.example.notalone_covid19.reports.ActivityCalender;
 
@@ -25,6 +27,7 @@ public class HomeFragment extends Fragment
 {
     private RecyclerView list_LST_notes;
     private Adapter_NoteModel adapter_noteModel;
+    private Adapter_RiskGroup adapter_riskGroup;
     private ImageView img_next_note;
 
     @Override
@@ -43,6 +46,8 @@ public class HomeFragment extends Fragment
     }
 
     private void initList() {
+        ArrayList<RiskGroupPerson> notesForGroup = getNotesForGroup();
+        adapter_riskGroup=new Adapter_RiskGroup(getLayoutInflater(),notesForGroup);
         ArrayList<User> notes = getNotes();
         adapter_noteModel = new Adapter_NoteModel(getContext(), notes);
         list_LST_notes.setHasFixedSize(true);
@@ -65,18 +70,35 @@ public class HomeFragment extends Fragment
     }
 
     private ArrayList<User> getNotes() {
+
+
         ArrayList<User> notes = new ArrayList<>();
-        User note1 = new User("Guy","xxx@yyy.com","123");
+        User note1 = new User("Guy","xxx@yyy.com","1234");
         notes.add(note1);
-        User note2 = new User("Avi","xxx@yyy.com","123");
+        User note2 = new User("Avi","xxx@yyy.com","12");
         notes.add(note2);
-        User note3 = new User("Ran","xxx@yyy.com","123");
+        User note3 = new User("Ran","xxx@yyy.com","1234");
         notes.add(note3);
 
         return notes;
     }
 
-    private void goToCalendarActivity(User user){
+    private ArrayList<RiskGroupPerson> getNotesForGroup() {
+        ArrayList<RiskGroupPerson> notes = new ArrayList<>();
+
+        RiskGroupPerson note1 = new RiskGroupPerson("12345","David","Tel Aviv",32.023,12.004,12345,"05055555","get help");
+        notes.add(note1);
+        RiskGroupPerson note2 = new RiskGroupPerson("12345","David2","Tel Aviv",32.023,12.004,12345,"05055555","get help");
+        notes.add(note2);
+        RiskGroupPerson note3 = new RiskGroupPerson("12345","David3","Tel Aviv",32.023,12.004,12345,"05055555","get help");
+        notes.add(note3);
+
+        return notes;
+
+
+    }
+
+        private void goToCalendarActivity(User user){
         Intent intent = new Intent(getActivity() , ActivityCalender.class);
         intent.putExtra("uid",user.getId());
         intent.putExtra("my_uid","12341234");

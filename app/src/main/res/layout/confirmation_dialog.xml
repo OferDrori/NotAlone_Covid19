@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr">
+    <LinearLayout
+        android:padding="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/dialog_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:paddingTop="30dp"
+            android:textSize="20dp"
+            android:text="Thank you!\nPlease...\n..."/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+            <Button
+                android:layout_weight="1"
+                android:id="@+id/dialog_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:background="@drawable/ic_button_choose_image"/>
+            <Button
+                android:layout_weight="1"
+                android:id="@+id/dialog_confirm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Confirm"
+                android:layout_marginStart="30dp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:background="@drawable/ic_button"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

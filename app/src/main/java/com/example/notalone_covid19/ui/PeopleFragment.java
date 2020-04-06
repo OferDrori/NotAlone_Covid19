@@ -9,6 +9,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,10 +26,20 @@ public class PeopleFragment extends Fragment
 
     private RecyclerView list_LST_notes_people;
     private Adapter_NoteModel adapter_noteModel;
+    private LocationFragment fragment_a;
+    FragmentTransaction transaction = null;
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        fragment_a = new LocationFragment();
+        transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        FragmentManager fragmentManager  = getActivity().getSupportFragmentManager();
+        fragmentManager.beginTransaction().show(fragment_a).commit();
+
+
 
 
     }
@@ -76,6 +88,8 @@ public class PeopleFragment extends Fragment
         notes.add(note2);
         User note3 = new User("Ran","xxx@yyy.com","123");
         notes.add(note3);
+        User note4 = new User("Rani","xxx@yyy.com","123");
+        notes.add(note4);
 
         return notes;
     }

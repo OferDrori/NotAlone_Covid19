@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,12 +15,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.notalone_covid19.MainActivity;
+import com.example.notalone_covid19.MyApp;
 import com.example.notalone_covid19.MySharedPreferences;
 import com.example.notalone_covid19.R;
+import com.example.notalone_covid19.VolunteerUser;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -30,6 +39,9 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginButton;
     private MySharedPreferences msp;
     private FirebaseAuth mAuth;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_login);
         findViews();
+        mAuth = FirebaseAuth.getInstance();
         loginButton.setOnClickListener(goToHomeScreen);
         registerTextView.setOnClickListener(goToRegisterActivity);
     }
@@ -67,8 +80,10 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+
+                            checkIfGetPremition();
                             // Sign in success, update UI with the signed-in user's information
-                            goToNextActivity(MainActivity.class);
+                       //     goToNextActivity(MainActivity.class);
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(LoginActivity.this, "login failed.", Toast.LENGTH_SHORT).show();
@@ -82,12 +97,41 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
+    private void checkIfGetPremition() {
+
+        FirebaseUser userUID = FirebaseAuth.getInstance().getCurrentUser();
+        MyApp.setMyUid(userUID.getUid());
+// Read from the database
+        myRef.child("User").child("Israel").child(userUID.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                VolunteerUser volunteerUser = dataSnapshot.getValue(VolunteerUser.class);
+                Log.d("ptttt", "Value is: " + volunteerUser.getFullName());
+                if(volunteerUser.isPermissionAccess()){
+                    goToNextActivity(MainActivity.class);
+                }
+                else{
+                    goToNextActivity(WaitingActivity.class);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+            }
+        });
+
+    }
+
     private void goToNextActivity(Class activity)
     {
         Intent intent = new Intent(this , activity);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         this.startActivity(intent);
     }
+
     private void findViews () {
         passwordEditText = findViewById(R.id.pass_login_editText);
         userNameEditText = findViewById(R.id.name_login_editText);
