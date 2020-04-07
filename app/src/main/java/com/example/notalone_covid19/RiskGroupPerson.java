@@ -90,19 +90,19 @@ public class RiskGroupPerson {
         this.status = status;
     }
 
-    public Double[] getAddressAsDoubleArray(){
-        String[]latLongString = Address.split(",");
-        try {
-            Double[] latlong = new Double[]{
-                    Double.valueOf(latLongString[0]),
-                    Double.valueOf(latLongString[1])
-            };
-            return latlong;
-        }catch(ArrayIndexOutOfBoundsException e){
-            Log.i("latitude/longitude", "Could not parse latitude/longitude \n" + e);
-            return null;
-        }
-    }
+//    public Double[] getAddressAsDoubleArray(){
+//        String[]latLongString = Address.split(",");
+//        try {
+//            Double[] latlong = new Double[]{
+//                    Double.valueOf(latLongString[0]),
+//                    Double.valueOf(latLongString[1])
+//            };
+//            return latlong;
+//        }catch(ArrayIndexOutOfBoundsException e){
+//            Log.i("latitude/longitude", "Could not parse latitude/longitude \n" + e);
+//            return null;
+//        }
+//    }
 
     @Override
     public String toString() {
@@ -114,5 +114,13 @@ public class RiskGroupPerson {
                 ", phone='" + phone + '\'' +
                 ", status='" + status + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if(o == this) return true;
+        if(o == null || (o instanceof RiskGroupPerson)) return false;
+        RiskGroupPerson r = (RiskGroupPerson)o;
+        return r.getId().equals(id);
     }
 }

@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.notalone_covid19.MyApp;
 import com.example.notalone_covid19.R;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
@@ -61,7 +62,8 @@ public class ActivityCalender extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
+        if(getSupportActionBar() != null)
+            getSupportActionBar().hide();
         setContentView(R.layout.activity_calender);
         calendarView = findViewById(R.id.compactcalendar_view);
         fabAdd = findViewById(R.id.fab_add);
@@ -69,7 +71,7 @@ public class ActivityCalender extends AppCompatActivity {
         eventsListView = findViewById(R.id.events_list);
         if(getIntent().getExtras() == null)
             return;
-        final String myUid = getIntent().getExtras().getString("my_uid");
+        final String myUid = MyApp.getMyUid();
         final String uid = getIntent().getExtras().getString("uid");
         if(myUid == null || myUid.isEmpty() || uid == null || uid.isEmpty())
             return;
@@ -78,7 +80,6 @@ public class ActivityCalender extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ActivityCalender.this,AddActionActivity.class);
                 intent.putExtra("uid",uid);
-                intent.putExtra("my_uid",myUid);
                 startActivity(intent);
             }
         });
