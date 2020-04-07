@@ -19,15 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        FirebaseDatabase.getInstance().getReference().child("RiskGroupPersonDB")
-//                .child("3294").setValue(new RiskGroupPerson("3294","Stam Mishu",
-//                "Tel Aviv",34.755499,32.109333,0,"0502834393",""));
-//        FirebaseDatabase.getInstance().getReference().child("RiskGroupPersonDB")
-//                .child("3214").setValue(new RiskGroupPerson("3214","Ploni Ehad",
-//                "Tel Aviv",34.805499,32.109333,0,"0502956393",""));
-//        FirebaseDatabase.getInstance().getReference().child("RiskGroupPersonDB")
-//                .child("5294").setValue(new RiskGroupPerson("5294","Eled Levi",
-//                "Tel Aviv",34.755499,32.159333,0,"0502807393",""));
+
         setContentView(R.layout.activity_main);
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
