@@ -4,7 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <TextView
+        android:padding="10dp"
+        android:id="@+id/home_fragment_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="The people i help"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <ListView
+        android:layout_below="@id/home_fragment_title"
+        android:layout_centerHorizontal="true"
         android:id="@+id/list_LST_notes"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

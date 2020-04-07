@@ -18,6 +18,7 @@ import com.example.notalone_covid19.MainActivity;
 import com.example.notalone_covid19.MyApp;
 import com.example.notalone_covid19.MySharedPreferences;
 import com.example.notalone_covid19.R;
+import com.example.notalone_covid19.RiskGroupPerson;
 import com.example.notalone_covid19.VolunteerUser;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -29,6 +30,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -99,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void checkIfGetPremition() {
 
-        FirebaseUser userUID = FirebaseAuth.getInstance().getCurrentUser();
+        final FirebaseUser userUID = FirebaseAuth.getInstance().getCurrentUser();
         MyApp.setMyUid(userUID.getUid());
 // Read from the database
         myRef.child("User").child("Israel").child(userUID.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -109,6 +112,20 @@ public class LoginActivity extends AppCompatActivity {
                 // whenever data at this location is updated.
                 VolunteerUser volunteerUser = dataSnapshot.getValue(VolunteerUser.class);
                 Log.d("ptttt", "Value is: " + volunteerUser.getFullName());
+                FirebaseDatabase.getInstance().getReference().child(userUID.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        ArrayList<RiskGroupPerson> people = new ArrayList<>();
+                        for(DataSnapshot snapshot : dataSnapshot.getChildren())
+                            people.add(snapshot.getValue(RiskGroupPerson.class));
+                        MyApp.setPeopleHelp(people);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
                 if(volunteerUser.isPermissionAccess()){
                     goToNextActivity(MainActivity.class);
                 }

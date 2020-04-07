@@ -47,16 +47,27 @@ public class LocationFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 people.clear();
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    people.add(snapshot.getValue(RiskGroupPerson.class));
+                    try {
+                        RiskGroupPerson person = snapshot.getValue(RiskGroupPerson.class);
+                        if(!MyApp.getPeopleHelp().contains(person)) {
+                            people.add(person);
+                        }
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
                 }
                 mapFragment.setPeople(people);
                 listView.setAdapter(new Adapter_RiskGroup(getLayoutInflater(), people, new ListViewCallback<RiskGroupPerson>() {
                     @Override
                     public void onSelected(RiskGroupPerson o) {
+                        final RiskGroupPerson p = o;
                         Dialog dialog = getConfirmationDialog(o, new DialogCallback() {
                             @Override
                             public void onConfirmed() {
-                                //TODO: Handel user confirmed
+                                FirebaseDatabase.getInstance().getReference().child(MyApp.getMyUid())
+                                        .push().setValue(p);
+                                FirebaseDatabase.getInstance().getReference().child(RISK_GROUP_PERSONS_DB_NAME).
+                                        child(p.getId()).setValue("");
                             }
                         });
                         dialog.show();

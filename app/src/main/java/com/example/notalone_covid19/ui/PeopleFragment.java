@@ -38,10 +38,6 @@ public class PeopleFragment extends Fragment
         transaction = getActivity().getSupportFragmentManager().beginTransaction();
         FragmentManager fragmentManager  = getActivity().getSupportFragmentManager();
         fragmentManager.beginTransaction().show(fragment_a).commit();
-
-
-
-
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
