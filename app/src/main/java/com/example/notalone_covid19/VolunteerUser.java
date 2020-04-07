@@ -8,7 +8,7 @@ public class VolunteerUser extends User {
     private boolean permissionAccess=false;
 
     public VolunteerUser() {
-      super();
+        super();
     }
 
     public VolunteerUser(String fullName, String email, String id, String photoPath,String description, String phoneNumber, String location) {

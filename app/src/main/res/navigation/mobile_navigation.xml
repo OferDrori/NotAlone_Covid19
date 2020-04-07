@@ -13,8 +13,8 @@
 
     <fragment
         android:id="@+id/navigation_people"
-        android:name="com.example.notalone_covid19.ui.PeopleFragment"
+        android:name="com.example.notalone_covid19.ui.LocationFragment"
         android:label="@string/title_people"
-        tools:layout="@layout/fragment_people" />
+        tools:layout="@layout/fragment_location" />
 
 </navigation>

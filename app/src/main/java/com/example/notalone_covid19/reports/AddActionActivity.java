@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
+import com.example.notalone_covid19.MyApp;
 import com.example.notalone_covid19.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.FirebaseDatabase;
@@ -41,7 +42,7 @@ public class AddActionActivity extends AppCompatActivity {
             return;
         date = System.currentTimeMillis();
         uid = getIntent().getExtras().getString("uid");
-        myUid = getIntent().getExtras().getString("my_uid");
+        myUid = MyApp.getMyUid();
         datePickButton = findViewById(R.id.date_picker_button);
         actionSpinner = findViewById(R.id.activityAdd_actionSpinner);
         saveButton = findViewById(R.id.add_action_save);
