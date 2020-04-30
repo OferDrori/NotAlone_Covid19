@@ -44,6 +44,8 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
+    private final String RISK_GROUP_PERSONS_DB_NAME = "RiskGroupPersonDB";
+
 
 
     @Override
@@ -55,6 +57,23 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         loginButton.setOnClickListener(goToHomeScreen);
         registerTextView.setOnClickListener(goToRegisterActivity);
+        addHelperUser();
+    }
+
+    private void addHelperUser() {
+        RiskGroupPerson riskGroupPerson=new RiskGroupPerson("31334444","yosi choen","Tel Aviv",
+                32.2,33,13333,"xxxx","need help");
+        RiskGroupPerson riskGroupPerson2=new RiskGroupPerson("3134444","Aviv choen","Tel Aviv",
+                32.2,33,13333,"xxxx","need help");
+        RiskGroupPerson riskGroupPerson3=new RiskGroupPerson("3134444","Guy choen","Tel Aviv",
+                32.2,33,13333,"xxxx","need help");
+        RiskGroupPerson riskGroupPerson4=new RiskGroupPerson("31344","Guy choen","Tel Aviv",
+                32.2,33,13333,"xxxx","need help");
+
+        myRef.child(RISK_GROUP_PERSONS_DB_NAME).child(riskGroupPerson.getId()).setValue(riskGroupPerson);
+        myRef.child(RISK_GROUP_PERSONS_DB_NAME).child(riskGroupPerson.getId()).setValue(riskGroupPerson2);
+        myRef.child(RISK_GROUP_PERSONS_DB_NAME).child(riskGroupPerson.getId()).setValue(riskGroupPerson3);
+        myRef.child(RISK_GROUP_PERSONS_DB_NAME).child(riskGroupPerson.getId()).setValue(riskGroupPerson4);
     }
 
     View.OnClickListener goToRegisterActivity = new View.OnClickListener() {
