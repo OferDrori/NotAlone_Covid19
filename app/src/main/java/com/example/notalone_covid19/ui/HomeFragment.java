@@ -67,6 +67,11 @@ public class HomeFragment extends Fragment
                     public void onSelected(RiskGroupPerson o) {
                         goToCalendarActivity(o);
                     }
+
+                    @Override
+                    public void onClicked(RiskGroupPerson o) {
+
+                    }
                 }));
             }
 

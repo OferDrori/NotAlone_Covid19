@@ -48,6 +48,12 @@ public class Adapter_RiskGroup extends BaseAdapter {
         View listItem = convertView;
         if(listItem == null)
             listItem = inflater.inflate(R.layout.list_note,parent,false);
+        listItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callback.onClicked(riskGroupPersonArrayList.get(position));
+            }
+        });
         ImageView button = listItem.findViewById(R.id.img_next_note);
         name = listItem.findViewById(R.id.fullName_LBL_title);
         location = listItem.findViewById(R.id.location_LBL_title);

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import androidx.annotation.NonNull;
 
 public class RiskGroupPersonsFragment {
-    ArrayList<RiskGroupPerson> riskGroupPersons = new ArrayList<>();
+    private ArrayList<RiskGroupPerson> riskGroupPersons = new ArrayList<>();
     private final String RISK_GROUP_PERSONS_DB_NAME = "RiskGroupPersonDB";
 
     private void readFromDatabase()

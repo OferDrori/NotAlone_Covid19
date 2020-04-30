@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.notalone_covid19.R;
 import com.example.notalone_covid19.RiskGroupPerson;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -48,6 +49,12 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback
         this.people = people;
         if(googleMap != null)
             addPeopleToMap();
+    }
+
+    public void zoomToLocation(double latitude, double longitude){
+        if(googleMap == null)
+            return;
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude,longitude),20));
     }
 
     private void addPeopleToMap(){

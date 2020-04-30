@@ -72,6 +72,11 @@ public class LocationFragment extends Fragment {
                         });
                         dialog.show();
                     }
+
+                    @Override
+                    public void onClicked(RiskGroupPerson o) {
+                        mapFragment.zoomToLocation(o.getLatitude(),o.getLongitude());
+                    }
                 }));
             }
 
@@ -104,6 +109,7 @@ public class LocationFragment extends Fragment {
 
     public interface ListViewCallback<T>{
         void onSelected(T o);
+        void onClicked(T o);
     }
 
     private interface DialogCallback{
