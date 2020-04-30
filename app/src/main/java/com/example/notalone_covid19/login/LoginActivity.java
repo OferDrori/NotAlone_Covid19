@@ -61,15 +61,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void addHelperUser() {
-        RiskGroupPerson riskGroupPerson=new RiskGroupPerson("31334444","yosi choen","Tel Aviv",
+        RiskGroupPerson riskGroupPerson=new RiskGroupPerson("313344","yosi choen","Tel Aviv",
                 32.2,33,13333,"xxxx","need help");
         RiskGroupPerson riskGroupPerson2=new RiskGroupPerson("3134444","Aviv choen","Tel Aviv",
                 32.2,33,13333,"xxxx","need help");
-        RiskGroupPerson riskGroupPerson3=new RiskGroupPerson("3134444","Guy choen","Tel Aviv",
+        RiskGroupPerson riskGroupPerson3=new RiskGroupPerson("313444","Guy choen","Tel Aviv",
                 32.2,33,13333,"xxxx","need help");
-        RiskGroupPerson riskGroupPerson4=new RiskGroupPerson("31344","Guy choen","Tel Aviv",
+        RiskGroupPerson riskGroupPerson4=new RiskGroupPerson("313644","Guy choen","Tel Aviv",
                 32.2,33,13333,"xxxx","need help");
-
         myRef.child(RISK_GROUP_PERSONS_DB_NAME).child(riskGroupPerson.getId()).setValue(riskGroupPerson);
         myRef.child(RISK_GROUP_PERSONS_DB_NAME).child(riskGroupPerson.getId()).setValue(riskGroupPerson2);
         myRef.child(RISK_GROUP_PERSONS_DB_NAME).child(riskGroupPerson.getId()).setValue(riskGroupPerson3);
