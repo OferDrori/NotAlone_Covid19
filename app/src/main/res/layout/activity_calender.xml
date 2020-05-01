@@ -44,7 +44,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/txt_name_calendar"
-                        android:text="Leon King"
+                        android:text="Ofer Drori"
                         android:gravity="center"
                         android:textStyle="bold"
                         android:textSize="15dp">

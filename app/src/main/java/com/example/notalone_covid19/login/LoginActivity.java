@@ -70,9 +70,9 @@ public class LoginActivity extends AppCompatActivity {
         RiskGroupPerson riskGroupPerson4=new RiskGroupPerson("313644","Guy choen","Tel Aviv",
                 35.217018,31.771959,13333,"xxxx","need help");
         myRef.child(RISK_GROUP_PERSONS_DB_NAME).child(riskGroupPerson.getId()).setValue(riskGroupPerson);
-        myRef.child(RISK_GROUP_PERSONS_DB_NAME).child(riskGroupPerson.getId()).setValue(riskGroupPerson2);
-        myRef.child(RISK_GROUP_PERSONS_DB_NAME).child(riskGroupPerson.getId()).setValue(riskGroupPerson3);
-        myRef.child(RISK_GROUP_PERSONS_DB_NAME).child(riskGroupPerson.getId()).setValue(riskGroupPerson4);
+        myRef.child(RISK_GROUP_PERSONS_DB_NAME).child(riskGroupPerson2.getId()).setValue(riskGroupPerson2);
+        myRef.child(RISK_GROUP_PERSONS_DB_NAME).child(riskGroupPerson3.getId()).setValue(riskGroupPerson3);
+        myRef.child(RISK_GROUP_PERSONS_DB_NAME).child(riskGroupPerson4.getId()).setValue(riskGroupPerson4);
     }
 
     View.OnClickListener goToRegisterActivity = new View.OnClickListener() {
